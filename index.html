@@ -1,14 +1,58 @@
-<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page principale</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    p {
+      text-align: center;
+      color: #666;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      text-align: center;
+    }
+    li {
+      display: inline;
+      margin: 0 10px;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #0056b3;
+    }
+  </style>
 </head>
 <body>
-    <h1>Bonjour, bienvenue dans mon site</h1>
-    <h3>Nom : Bourriche Ramy</h3>
-    <h4>Matricule : 222231638401</h4>
-    <p>Groupe 1</p>
+<div class="container">
+  <h1>Bienvenue dans mon site</h1>
+  <p>voici nos pages</p>
+  <ul>
+    <li><a href="page1.html">Page avec un tableau</a></li>
+    <li><a href="page2.html">Page avec une image</a></li>
+  </ul>
+</div>
 </body>
 </html>
