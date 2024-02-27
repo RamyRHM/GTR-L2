@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartes Graphics</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .card {
+            width: 300px;
+            margin: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .price {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Graphics Card Comparison</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <img src="RTX3060.jpg" alt="RTX 3060">
+            <div class="card-content">
+                <h2>RTX 3060</h2>
+                <ul>
+                    <li>La GeForce RTX 3060 12 Go est une carte graphique du segment performance de NVIDIA, lancée le 12 janvier 2021. Construite sur le processus 8 nm et basée sur le processeur graphique GA106, dans sa variante GA106-300-A1, la carte prend en charge DirectX 12 Ultime. Cela garantit que tous les jeux modernes fonctionneront sur GeForce RTX 3060 12 Go.</li>
+                    <li>Prix: <span class="price">60000DA</span></li>
+                </ul>
+                <div class="btn-container">
+                    <a href="#" class="btn">Acheter</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="RX7600XT.jpg" alt="RX 7600XT">
+            <div class="card-content">
+                <h2>RX 7600XT</h2>
+                <ul>
+                    <li>La carte graphique AMD Radeon RX 7600 XT est une solution de mise à niveau idéale pour les utilisateurs, offrant des expériences fluides et visuellement époustouflantes à 1080p et au-delà. De plus doté de 16 Go de mémoire GDDR6 haute vitesse, il libère la créativité des utilisateurs dans les charges de travail d'IA et de création de contenu de nouvelle génération.</li>
+                    <li>Prix: <span class="price">90000DA</span></li>
+                </ul>
+                <div class="btn-container">
+                    <a href="#" class="btn">Acheter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartes Graphics</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .card {
+            width: 300px;
+            margin: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .price {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nos types de stockages</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <img src="SSD.jpg" alt="SSD">
+            <div class="card-content">
+                <h2>1Tb SATA 2.5" SSD</h2>
+                <ul>
+                    <li>Un SSD, ou disque SSD, est un type de périphérique de stockage utilisé dans les ordinateurs. Ce support de stockage non volatile stocke les données persistantes sur une mémoire flash à semi-conducteurs</li>
+                    <li>Prix: <span class="price">15000DA</span></li>
+                </ul>
+                <div class="btn-container">
+                    <a href="#" class="btn">Acheter</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="HDD.jpg" alt="HDD">
+            <div class="card-content">
+                <h2>4Tb 3.5" HDD</h2>
+                <ul>
+                    <li>Un disque dur (HDD) est un système de stockage de données traditionnel, non volatile et le plus important. Il est placé en interne sur un ordinateur et contient des plateaux. Il s'agit d'un mécanisme différent qui lit et écrit des données sur un disque dur et utilise des plateaux et une tête (lecture/écriture) pour accéder aux données.</li>
+                    <li>Prix: <span class="price">10000DA</span></li>
+                </ul>
+                <div class="btn-container">
+                    <a href="#" class="btn">Acheter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

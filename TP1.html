@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Store</title>
+    <style>
+        .styled-link {
+             font-size: 20px;
+             color: #007bff;
+              text-decoration: none;
+               font-weight: bold;
+               font-family: Arial, sans-serif;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin-top: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            background-color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #555;
+            color: #fff;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .category {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .item img {
+            max-width: 200px;
+            margin-right: 20px;
+        }
+        .item-description {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue dans notre shop en ligne</h1>
+    </header>
+    <nav>
+        <a href="GPU.html">Cartes Graphics</a>
+        <a href="CPU.html">Processeurs</a>
+        <a href="SSD.html">Stockage</a>
+    </nav>
+    <div class="container">
+        <div class="category">
+            <a href="GPU.html" class="styled-link">Cartes Graphics</a>
+            <div class="item">
+                <img src="RTX3060.jpg" alt="Electronics Item 1">
+                <div class="item-description">
+                    <h3>Nvidia GeForce RTX 3060</h3>
+                    <p></p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="RX7600XT.jpg" alt="Electronics Item 2">
+                <div class="item-description">
+                    <h3>AMD RX 7600XT</h3>
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            <a href="CPU.html" class="styled-link">Processeurs</a>
+            <div class="item">
+                <img src="Ryzen5_7600.jpg" alt="Accessorie Iten 1">
+                <div class="item-description">
+                    <h3>AMD Ryzen 5 7600</h3>
+                </div>
+            </div>
+            <div class="item">
+                <img src="i5-13600k.jpg" alt="Accessories Item 2">
+                <div class="item-description">
+                    <h3>Intel i5-13600k</h3>
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            <a href="SSD.html" class="styled-link">Stockage</a>
+            <div class="item">
+                <img src="SSD.jpg" alt="Clothes Item 1">
+                <div class="item-description">
+                    <h3>Solid State Drive</h3>
+                </div>
+            </div>
+            <div class="item">
+                <img src="HDD.jpg" alt="Clothes Item 2">
+                <div class="item-description">
+                    <h3>Hard Disk Drive</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="category">
+        <a href="Contact.html">Contactez Nous</a>
+      </div>
+</body>
+</html>
+

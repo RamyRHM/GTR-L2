@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processeurs</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .card {
+            width: 300px;
+            margin: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .price {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Processeurs</h1>
+    </header>
+    <div class="container">
+        <div class="card">
+            <img src="Ryzen5_7600.jpg" alt="RTX 3060">
+            <div class="card-content">
+                <h2>AMD Ryzen 5 7600X</h2>
+                <ul>
+                    <li>Le processeur AMD Ryzen™ 5 7600X est un processeur à 6 cœurs pour socket AM5 avec une fréquence d'horloge de 4,7 GHz et 32 Mo de cache L3. Le processeur Ryzen™ 5 7600X a une fréquence d'horloge de performance maximale de 5,3 GHz et est fabriqué à l'aide du processus FinFET 5 nm.</li>
+                    <li>Prix: <span class="price">40000DA</span></li>
+                </ul>
+                <div class="btn-container">
+                    <a href="#" class="btn">Acheter</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="i5-13600k.jpg" alt="RX 7600XT">
+            <div class="card-content">
+                <h2>Intel I5-13600k</h2>
+                <ul>
+                    <li>Le Core i5-12600K de dernière génération est également livré avec six cœurs P Hyper-Threaded cadencés légèrement en dessous de 4,9 GHz. Mais le Core i5-12600K n’avait que quatre cœurs E, cadencés à 3,6 GHz. L'augmentation de la vitesse d'horloge aide dans une certaine mesure le Core i5-13600K, mais il est clair que l'essentiel de l'amélioration des performances inhérente au Core i5-13600K vient du doublement du nombre de cœurs E.</li>
+                    <li>Prix: <span class="price">50000DA</span></li>
+                </ul>
+                <div class="btn-container">
+                    <a href="#" class="btn">Acheter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
