@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        :root {
+            --background-color: #000000;
+            --text-color: #fdf9f9;
+            --header-footer-bg: #484545;
+            --header-footer-text: #fff;
+            --link-color: #007bff;
+            --menu-bg: #090a0a;
+            --menu-text: #fff;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+        header, footer {
+            background-color: var(--header-footer-bg);
+            color: var(--header-footer-text);
+            text-align: center;
+            padding: 20px 0;
+        }
+        section {
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: #2a2a2a;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: var(--text-color);
+            font-size: 24px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--text-color);
+            padding-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #0c75e6; 
+        }
+        @media only screen and (max-width: 600px) {
+            section {
+                padding: 15px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+        }
+        body.dark-theme {
+            --background-color: #131314;
+            --text-color: #fdfdfd;
+            --header-footer-bg: #1c1c1d;
+            --link-color: #4db8ff;
+            --menu-bg: #141415;
+            --menu-text: #fff;
+        }
+        body.modern-theme {
+            --background-color: #f8f9fa;
+            --text-color: #495057;
+            --header-footer-bg: #007bff;
+            --link-color: #007bff;
+            --menu-bg: #007bff;
+            --menu-text: #fff;
+        }
+        body.classic-theme {
+            --background-color: #0b0b0b;
+            --text-color: #333;
+            --header-footer-bg: #5c5c5c;
+            --link-color: #333;
+            --menu-bg: #7e7e7f;
+            --menu-text: #fff;
+        }
+        nav {
+            background-color: var(--menu-bg);
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav a {
+            color: var(--menu-text);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        .image-gallery {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .image-gallery img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 0 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <header>
+        <h1>My Portfolio</h1>
+        <p>Welcome to my personal portfolio website</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav><nav>
+        <ul>
+            <a href="Dark.html"> Dark      </a>
+            <a href="TP2.html"> Light   </a>
+            <a href="Modern.html"> Modern   </a>
+            <a href="Classic.html"> Classic</a>
+        </ul>
+    </nav>
+
+    <section id="introduction">
+        <h2>Introduction</h2>
+        <p>
+            Bonjour, je suis étudiant à l'Université des Sciences et Technologies Haouari Boumedian, ma spécialité est Genie Telecomunication et resaux
+        </p>
+        <div class="image-gallery">
+            <img src="project1.jpg" alt="Project 1">
+            <img src="project2.jpg" alt="Project 2">
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            <li>
+                <h3>Site web shoping</h3>
+                <p>Creation d'un site web de vente de materiel informatique</p>
+            </li>
+            <li>
+                <h3>Project Agent de saisie</h3>
+                <p>Project sur les different types de languages de programation</p>
+            </li>
+        </ul>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p>Nom:Bourriche Ramy</p>
+        <p>Gmail:Ramy.PCParts@gmail.com</p>
+        <p>telephone:0784658563</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Portfolio</p>
+    </footer>
+</body>
+</html>
