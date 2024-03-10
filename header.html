@@ -1,29 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header</title>
+    <title>Divided HTML Page with Header</title>
     <style>
         body {
             margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
         }
-        .header {
+        header {
             background-color: #333;
             color: #fff;
-            text-align: center;
             padding: 20px;
+            text-align: center;
         }
-        h1 {
-            margin: 0;
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Bienvenue sur notre interface commerciale</h1>
-    </div>
+    <header>
+        <a class="button" href="productleft.html" target="leftmiddle">Products</a>
+        <a class="button" href="customerleft.html" target="leftmiddle">Customers</a>
+        <a class="button" href="ordersleft.html" target="leftmiddle">Orders</a>
+    </header>
 </body>
 </html>

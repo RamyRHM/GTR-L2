@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Footer</title>
+    <title></title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
         }
-        footer {
+        .footer {
             background-color: #333;
             color: #fff;
+            padding: 20px;
             text-align: center;
-            padding: 10px 0;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer a:hover {
+            color: #ddd;
         }
     </style>
 </head>
 <body>
-    <footer>
-        <p>&copy; Interface commerciale 2024. Tous droits réservés.</p>
-    </footer>
+    <div class="content">
+        <p></p>
+    </div>
+
+    <div class="footer">
+        <p>Copyright &copy; 2024. All rights reserved. Designed by <a href="#">Your Name</a>.</p>
+    </div>
 </body>
 </html>

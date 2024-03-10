@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Product Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .button {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Type New Customer's Information</h2>
+        <label for="customerId">Customer ID:</label>
+        <input type="number" id="customerId" name="customerId" required>
+        <label for="name">First & Last Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+    </form>
+
+    <div class="button-container">
+        <a class="button" href="addcustomer.html" target="middlemiddle">Reset</a>
+        <a class="button" href="addcustomersuccess.html" target="rightmiddle">Add</a>
+    </div>
+</body>
+</html>

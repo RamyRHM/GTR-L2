@@ -1,71 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commercial Interface</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        #header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        #footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-        }
-        #container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 20px;
-        }
-        #form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        #form h2 {
-            margin-top: 0;
-            text-align: center;
-        }
-        #form input[type="text"],
-        #form input[type="email"],
-        #form input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        #form input[type="submit"] {
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
-        }
-        #form input[type="submit"]:hover {
-            background-color: #555;
-        }
-    </style>
+    <title></title>
 </head>
-<frameset rows="15%, 70%, 15%">
-    <frame src="header.html" scrolling="no">
-    <frame src="form.html">
-    <frame src="footer.html" scrolling="no">
+<frameset rows="20%,60%,20%">
+    <frame src="header.html" name="header" scrolling="no">
+    <frame src="middle.html" name="middle" scrolling="auto">
+    <frame src="footer.html" name="footer" scrolling="no">
 </frameset>
-<noframes>
-    <body>
-        <p>This page uses frames, but your browser doesn't support them.</p>
-    </body>
-</noframes>
 </html>

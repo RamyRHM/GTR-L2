@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Total Amount</th>
+            <th>Payment type</th>
+            <th>Domiciliation</th>
+        </tr>
+        <tr>
+            <td>100</td>
+            <td>03/08/2024</td>
+            <td>100 000</td>
+            <td>Cash</td>
+            <td>BNA</td>
+        </tr>
+        <tr>
+            <td>200</td>
+            <td>04/08/2023</td>
+            <td>120 000</td>
+            <td>Virement</td>
+            <td>ALG Poster</td>
+        </tr>
+    </table>
+    
+    <div class="button-container">
+        <form action="addorder.html" target="middlemiddle">
+            <input type="submit" class="button" value="Add Order">
+        </form>
+    </div>
+</body>
+</html>
