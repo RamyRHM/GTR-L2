@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Entry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="number"] {
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Entry</h1>
+    <form id="orderForm" onsubmit="return generateTextFile()">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+            </tr>
+            <tr>
+                <td>
+                    <select  id="production1" name="production1">
+                        <option value="product1" selected>Product 1 / PU=100DA</option>
+                        <option value="product2">Product 2 / PU=200DA</option>
+                        <option value="product3">Product 3 / PU=300DA</option>
+                        <option value="product4">Product 4 / PU=400DA</option>
+                        <option value="product5">Product 5 / PU=500DA</option>
+                    </select>
+                </td>
+                <td><input id="contite1" type="number" name="quantity1" min="0" value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="production2" name="product2">
+                        <option value="product1">Product 1 / PU=100DA</option>
+                        <option value="product2" selected>Product 2/ PU=200DA</option>
+                        <option value="product3">Product 3 / PU=300DA</option>
+                        <option value="product4">Product 4 / PU=400DA</option>
+                        <option value="product5">Product 5 / PU=500DA</option>
+                    </select>
+                </td>
+                <td><input id="contite2"type="number" name="quantity2" min="0" value="1"></td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="production3" name="product3">
+                        <option value="product1">Product 1 / PU=100DA</option>
+                        <option value="product2">Product 2 / PU=200DA</option>
+                        <option value="product3" selected>Product 3 / PU=300DA</option>
+                        <option value="product4">Product 4 / PU=400DA</option>
+                        <option value="product5">Product 5 / PU=500DA</option>
+                    </select>
+                </td>
+                <td><input id="contite3"type="number" name="quantity3" min="0" value="1"></td>
+            </tr>
+        </table>
+        <p><b>Taxe Exoneration 19%</b> <input id="TAX"type="checkbox" name="taxExoneration"></p>
+        <p><b>Reduction</b> 
+            <input type="radio" id="wa"name="reduction" value="none" checked> None 
+            <input type="radio" id="we"name="reduction" value="5%"> 5% 
+            <input type="radio" id="wo"name="reduction" value="10%"> 10%
+        </p>
+        <button onclick="table()">review</button>
+    </form>
+    <script>
+        
+function table (){
+   
+        var reduction = 0;
+        var taxtotal = 0;
+        var net = 0;
+        var brut=0;
+        taax = 1;
+        UP1 = 0;
+        UP2 = 0;
+        UP3 = 0;
+    var P1= document.getElementById("production1");
+    var PRO1 = P1.value;
+    var P2= document.getElementById("production2");
+    var PRO2 = P2.value;
+    var P3= document.getElementById("production3");
+    var PRO3 = P3.value;
+    var C1= document.getElementById("contite1");
+    var CON1 = C1.value;
+    var C2= document.getElementById("contite2");
+    var CON2 = C2.value;
+    var C3= document.getElementById("contite3");
+    var CON3 = C3.value;
+    var taxe= document.getElementById("TAX");
+    var taxman = taxe.checked;
+    var R1= document.getElementById("wa").checked;
+    var R2= document.getElementById("we").checked;
+    var R3= document.getElementById("wo").checked;
+
+    switch(PRO1) {
+        case "product1":
+    net = net + (100*CON1);
+    UP1=100;
+    break;
+    case "product2":
+    net = net + (200*CON1);
+    UP1=200;
+    break;
+    case 'product3':
+    net = net + (300*CON1);
+    UP1=300;
+    break;
+    case 'product4':
+    net = net + (400*CON1);
+    UP1=400;
+    break;
+    case 'product5':
+    net = net + (500*CON1);
+    UP1=500;
+    break;
+  default:
+}
+switch(PRO2) {
+        case 'product1':
+    net = net + (100*CON2);
+    UP2=100;
+    break;
+    case 'product2':
+    net = net + (200*CON2);
+    UP2=200;
+    break;
+    case 'product3':
+    net = net + (300*CON2);
+    UP2=300;
+    break;
+    case 'product4':
+    net = net + (400*CON2);
+    UP2=400;
+    break;
+    case 'product5':
+    net = net + (500*CON2);
+    UP2=500;
+    break;
+  default:
+}
+switch(PRO3) {
+        case 'product1':
+    net = net + (100*CON3);
+    UP3=100;
+    break;
+    case 'product2':
+    net = net + (200*CON3);
+    UP3=200;
+    break;
+    case 'product3':
+    net = net + (300*CON3);
+    UP3=300;
+    break;
+    case 'product4':
+    net = net + (400*CON3);
+    UP3=400;
+    break;
+    case 'product5':
+    net = net + (500*CON3);
+    UP3=500;
+    break;
+  default:
+    brut = net;
+}
+
+    if(R1){
+        reduction=0;
+    }
+    if(R2){
+        reduction=net * 0.05;
+    }
+    if(R3){
+        reduction=net * 0.1;
+    }
+    if(taxman == true){
+    taxtotal = (net - reduction) * 0.19;
+    }
+brut = net + taxtotal - reduction;
+
+
+
+
+
+document.write('<style>');
+document.write('table {');
+document.write('  border-collapse: collapse;');
+document.write('}');
+document.write('td {');
+document.write('  width: 100px;');
+document.write('  height: 50px;');
+document.write('  border: 1px solid #ccc;');
+document.write('}');
+document.write('</style>');
+
+document.write('<table>');
+document.write('<tbody>');
+document.write('<tr>');
+document.write('<td>Products</td>');
+document.write('<td>Unit Price</td>');
+document.write('<td>Quantity</td>');
+document.write('<td>Amount</td>');
+document.write('</tr>');
+
+document.write('<tr>');
+document.write('<td>'+ PRO1 +'</td>');
+document.write('<td>'+ UP1 +'</td>');
+document.write('<td>'+ CON1 +'</td>');
+document.write('<td>'+ UP1*CON1 +'</td>');
+document.write('</tr>');
+
+document.write('<tr>');     
+document.write('<td>'+PRO2+'</td>');
+document.write('<td>'+UP2+'</td>');
+document.write('<td>'+CON2+'</td>');
+document.write('<td>'+ UP2*CON2+'</td>');
+document.write('</tr>');
+
+document.write('<tr>');
+document.write('<td>'+PRO3+'</td>');
+document.write('<td>'+UP3+'</td>');
+document.write('<td>'+CON3+'</td>');
+document.write('<td>'+UP3*CON3+'</td>');
+document.write('</tr>');
+
+document.write('<tr>');
+document.write('<td colspan="3">Exoneration Amount(19%)</td>');
+document.write('<td>'+taxtotal+'</td>');
+document.write('</tr>');
+document.write('<tr>');
+document.write('<td colspan="3">Reduction ammount</td>');
+document.write('<td>'+reduction+'</td>');
+document.write('</tr>');
+
+document.write('<tr>');
+document.write('<td colspan="2" rowspan="2">&nbsp;&nbsp;&nbsp;&nbsp;</td>');
+document.write('<td>Net Pricing</td>');
+document.write('<td>'+net+'</td>');
+document.write('</tr>');
+
+document.write('<tr>');
+document.write('<td>Brut Amount</td>');
+document.write('<td>'+brut+'</td>');
+document.write('</tr>');
+
+document.write('</tbody>');
+document.write('</table>');
+document.write("</div>");
+
+document.write('<a href="calculator.html"><button>Other order entery</button></a>');
+
+
+    }
+
+    </script>
+</body>
+</html>
