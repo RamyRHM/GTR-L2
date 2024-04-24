@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Inventory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        #X {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #summary {
+            margin-bottom: 20px;
+        }
+
+        #summary p {
+            margin: 5px 0;
+        }
+
+        #summary span {
+            font-weight: bold;
+        }
+
+        #products div {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        button {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: calc(100% - 18px);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #4caf50;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="number"]::placeholder {
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div id="X">
+        <h1>TP5 Ordre Estimate</h1>
+        <div id="summary">
+            <h2>Products</h2>
+            <p>Total products: <span id="prixtotal">0</span></p>
+            <p>Total Quantity: <span id="Quantity">0</span></p>
+            <p>Total Amount: $<span id="totalAmount">0.00</span></p>
+        </div>
+
+        <div id="products"></div>
+
+        <div>
+            <input type="text" id="productname" placeholder="Product name">
+            <input type="number" id="quantity" placeholder="Quantity">
+            <input type="number" id="price" placeholder="Price">
+            <button onclick="addproduct()">Add Product</button>
+        </div>
+    </div>
+
+    <script>
+    
+    let products = [];
+
+    function updateSummary() {
+    prixtotal = products.length;
+    Quantity = 0;
+    totalAmount = 0;
+
+    for (product of products) {
+        Quantity += product.quantity;
+        totalAmount += product.quantity * product.price;
+    }
+
+    document.getElementById("prixtotal").innerText = prixtotal;
+    document.getElementById("Quantity").innerText = Quantity;
+    document.getElementById("totalAmount").innerText = totalAmount.toFixed(2);
+    }
+
+    function renderproducts() {
+    productsContainer = document.getElementById("products");
+    productsContainer.innerHTML = '';
+
+    products.forEach((product, index) => {
+        productItem = document.createElement('div');
+        productItem.innerHTML = `
+        <p id="product-${index}">
+        <span>name: ${product.name}</span>
+        <span>Quantity: ${product.quantity}</span>
+        <span>Price: $${product.price.toFixed(2)}</span>
+        </p>
+        <button onclick="editproduct(${index})">Edit</button>
+        <button onclick="deleteproduct(${index})">Delete</button>
+
+                        `;
+        productsContainer.appendChild(productItem);
+
+        
+    });
+    }
+
+    function addproduct() {
+    productname = document.getElementById("productname").value;
+    quantity = parseInt(document.getElementById("quantity").value);
+    price = parseFloat(document.getElementById("price").value);
+
+    if (!productname || !quantity || !price) {
+        alert("Merci de remplir tous les champs");
+        return;
+
+            }
+        
+    products.push({ name: productname, quantity, price });
+    updateSummary();
+    renderproducts();
+    clearInputs();
+
+}
+
+function editproduct(index) {
+    productElement = document.getElementById(`product-${index}`);
+    product = products[index];
+
+    productElement.innerHTML = `
+<input type="text" id="editname-${index}" value="${product.name}">
+<input type="number" id="editQuantity-${index}" value="${product.quantity}">
+<input type="number" id="editPrice-${index}" value="${product.price.toFixed(2)}">
+<button onclick="saveEdit(${index})">Save</button>
+
+
+    `;
+        }
+
+function saveEdit(index) {
+    newname = document.getElementById(`editname-${index}`).value;
+    newQuantity = parseInt(document.getElementById(`editQuantity-${index}`).value);
+    newPrice = parseFloat(document.getElementById(`editPrice-${index}`).value);
+
+    if (!newname || !newQuantity || !newPrice) {
+        alert("Merci de remplir tous les champs.");
+        return;
+
+
+    }
+
+    products[index] = { name: newname, quantity: newQuantity, price: newPrice };
+    updateSummary();
+    renderproducts();
+
+
+        }
+        
+        function deleteproduct(index) {
+            products.splice(index, 1);
+            updateSummary();
+            renderproducts();
+
+        }
+        
+        function clearInputs() {
+            document.getElementById("productname").value = "";
+            document.getElementById("quantity").value = "";
+            document.getElementById("price").value = "";
+
+        }
+        
+   
+    </script>
+</body>
+</html>
