@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="mini.css">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="welcomeMessage">Welcome to the Tech Support Website Here, you can find help for your computer and electronics problems. Whether you're a beginner or an experienced user, our community and resources are here to assist you. Feel free to browse through our articles, ask questions, and get the support you need. We're glad to have you here!</div>
+
+    
+    <div style="text-align: right; margin-bottom: 20px;">
+        <button id="settingsButton">Settings</button>
+        <button id="helpButton">New User Help</button>
+    </div>
+    <h1>Welcome to the Tech Support Website!</h1>
+    <div class="greatnessSection">
+        <h3>About Our Tech Support Website</h3>
+        <p>We pride ourselves on being one of the leading tech support websites, offering comprehensive solutions to a wide range of computer and electronics issues. Our team of experts is dedicated to providing top-notch service and guidance to ensure you get the help you need. Don't hesitate to reach out if you're stuck - just click the "Help" button below.</p>
+    </div>
+    <h2>Comments</h2>
+    <div id="commentsContainer">
+     
+    </div>
+
+    <form id="commentForm">
+        <textarea id="newComment" placeholder="Type your comment..."></textarea>
+        <p><button type="submit">Post Comment</button></p>
+    </form>
+    
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('helpButton').addEventListener('click', function() {
+            window.location.href = 'help.html';
+        });
+    </script>
+</body>
+</html>

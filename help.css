@@ -1,0 +1,297 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('back.jpeg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 20px;
+}
+
+
+.container {
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 20px;
+}
+
+
+.content,.photos {
+    flex: 1;
+    padding: 20px;
+}
+
+.photos img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+.btn {
+    display: inline-block; /* Allows setting width and height */
+    background-color: #007BFF; /* Primary blue color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold font weight */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+@media (max-width: 768px) {
+   .container {
+        flex-direction: column;
+    }
+
+   .content,.photos {
+        flex: none;
+        width: 100%;
+    }
+}
+
+#welcomeMessage {
+    display: none; 
+}
+
+
+h1 {
+    text-align: center;
+    color: #fff; 
+    font-size: 24px; 
+    font-weight: bold; 
+    padding: 20px; 
+    background: rgba(0, 0, 0, 0.6); 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+    margin-top: 30px; 
+    margin-bottom: 30px; 
+}
+
+#settingsButton {
+    width: 7%;
+    height: 30px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+
+
+#helpButton {
+    width: 12%;
+    height: 30px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+    margin-left: 10px; 
+}
+
+#helpButton:hover, #settingsButton:hover {
+    background-color: #5f5f5f;
+    color: #fff;
+}
+
+
+h2 {
+    color: #555; 
+    margin-top: 30px; 
+    margin-bottom: 15px; 
+}
+
+#commentsContainer {
+    border: 0px solid #7a7979; 
+    padding: 10px;
+    margin-bottom: 20px; 
+}
+
+#newcomment, #commentForm textarea {
+    border: 1px solid #ccc; 
+    margin-bottom: 20px; 
+    padding: 10px; 
+    width: 1000px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color: #fff;
+    border-radius: 10px;
+    word-wrap: break-word; 
+    overflow: hidden; 
+    max-width: 100%; 
+}
+
+#commentForm button[type=submit] {
+    width: 10%;
+    height: 30px;
+    background:#fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 14px;
+    color:#333;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+#commentForm button[type=submit]:hover {
+    background-color: #5f5f5f;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+
+.comment-wrapper {
+    border: 1px solid #ccc; 
+    margin-bottom: 20px; 
+    padding: 10px; 
+    width: 1000px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color: #fff;
+    border-radius: 10px;
+    word-wrap: break-word; 
+    overflow: hidden; 
+    max-width: 100%; 
+}
+
+.comment-wrapper .input-box {
+    position: relative;
+    width : 100%;
+    height: 50px;
+    background: transparent;
+    margin : 30px 0;
+}
+
+
+.comment-container {
+    background: transparent; 
+    padding: 10px; 
+    border-radius: 5px; 
+    word-wrap: break-word; 
+    overflow: hidden; 
+}
+
+
+.replies-container ul {
+    list-style-type: none; 
+    padding-left: 20px; 
+}
+
+.comment-content {
+    margin-bottom: 10px;
+}
+
+.comment-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.like-button, .show-replies-btn, .reply-button, .delete-comment-button, .delete-reply-button, .dislike-button, .reply-like-button, .reply-dislike-button {
+    width: 12%;
+    height: 30px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+
+.show-replies-btn:hover, .reply-button:hover, #settingsButton:hover, .delete-comment-button:hover, .delete-reply-button:hover, #commentForm button[type=submit]:hover, .like-button:hover, .dislike-button:hover, .reply-like-button:hover, .reply-dislike-button:hover {
+    background-color: #5f5f5f;
+    color: #fff;
+}
+
+.replies-container.hidden {
+    display: none;
+}
+
+.reply-form.hidden {
+    display: none;
+}
+
+textarea {
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    width: 1000px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    color: #fff;
+    border-radius: 10px;
+    word-wrap: break-word; 
+    overflow: hidden; 
+    max-width: 100%; 
+}
+
+textarea::placeholder {
+    color: #666;
+}
+.greatnessSection {
+    background-color: #696969; 
+    padding: 20px; 
+    margin: 20px 0; 
+    max-width: 800px; 
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+}
+
+.greatnessSection h3 {
+    margin-bottom: 10px; 
+    color: #ffffff; 
+    font-size: 1.75em; 
+}
+
+.greatnessSection p {
+    color: #cfcfcf; 
+    font-size: 1.125em; 
+    line-height: 1.5; 
+}* {
+    box-sizing: border-box;
+}
+
+/* General button styling */
+.btn {
+    display: inline-block; /* Allows setting width and height */
+    background-color: #007BFF; /* Primary blue color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around the text */
+    font-size: 16px; /* Font size */
+    font-weight: bold; /* Bold font weight */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
