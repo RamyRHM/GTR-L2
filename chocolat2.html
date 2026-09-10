@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cacao & Co. — Commander des chocolats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cocoa-900:#2A1610;
+    --cocoa-800:#361C13;
+    --cocoa-700:#4A2A1E;
+    --cocoa-500:#7A4B32;
+    --caramel-600:#B87830;
+    --caramel-500:#C48A4A;
+    --caramel-300:#E3B77E;
+    --cream-100:#F7EFE3;
+    --cream-050:#FDF9F2;
+    --berry-600:#8C3B3F;
+    --line:#E7D9C2;
+    --radius:6px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 500px at 85% -10%, rgba(196,138,74,0.12), transparent 60%),
+      radial-gradient(900px 500px at -10% 20%, rgba(140,59,63,0.06), transparent 55%),
+      var(--cream-050);
+    color:var(--cocoa-900);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.55;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    color:var(--cocoa-900);
+    margin:0;
+  }
+
+  a{color:inherit;}
+
+  /* ---------- Header ---------- */
+  header.site{
+    padding:26px 6vw;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid var(--line);
+    flex-wrap:wrap;
+    gap:10px;
+    position:relative;
+  }
+  header.site::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-1px;
+    height:3px;
+    background:linear-gradient(90deg, var(--berry-600), var(--caramel-500) 45%, var(--caramel-300) 75%, transparent);
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .brand-mark{
+    width:34px; height:34px;
+    flex-shrink:0;
+  }
+  header.site .mark{
+    font-size:24px;
+    letter-spacing:0.2px;
+    font-weight:600;
+  }
+  header.site .mark em{
+    font-style:normal;
+    color:var(--berry-600);
+  }
+  header.site .tag{
+    font-size:13.5px;
+    color:var(--cocoa-500);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:72px 6vw 40px;
+    max-width:760px;
+    position:relative;
+  }
+  .hero h1{
+    font-size:clamp(34px, 5vw, 54px);
+    font-weight:600;
+    line-height:1.06;
+    letter-spacing:-0.5px;
+  }
+  .hero .drip{
+    width:150px;
+    height:16px;
+    margin-top:18px;
+    display:block;
+  }
+  .hero p{
+    margin-top:20px;
+    font-size:17.5px;
+    color:var(--cocoa-700);
+    max-width:56ch;
+  }
+
+  /* ---------- Layout ---------- */
+  .layout{
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:56px;
+    align-items:start;
+    padding:16px 6vw 90px;
+  }
+  @media (max-width:920px){
+    .layout{grid-template-columns:1fr; gap:36px;}
+  }
+
+  /* ---------- Menu ---------- */
+  .menu-section + .menu-section{margin-top:44px;}
+  .menu-section-head{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:12px;
+    margin-bottom:6px;
+  }
+  .menu-section-head .icon{
+    width:26px; height:26px;
+    color:var(--caramel-600);
+    flex-shrink:0;
+  }
+  .menu-section h2{
+    font-size:21px;
+    font-weight:600;
+  }
+
+  .item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    padding:20px 14px;
+    margin:0 -14px;
+    border-bottom:1px solid var(--line);
+    border-radius:var(--radius);
+    transition:background .18s ease;
+  }
+  .item:hover{background:rgba(196,138,74,0.07);}
+  .item:last-child{border-bottom:none;}
+
+  .item-info{flex:1;}
+  .item-name{
+    font-family:'Fraunces', serif;
+    font-size:18.5px;
+    font-weight:600;
+  }
+  .item-desc{
+    font-size:14px;
+    color:var(--cocoa-500);
+    margin-top:3px;
+  }
+  .item-price{
+    font-size:14.5px;
+    color:var(--berry-600);
+    margin-top:8px;
+    font-weight:600;
+    letter-spacing:0.2px;
+  }
+
+  .qty-control{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-shrink:0;
+    background:var(--cream-100);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:5px 8px;
+  }
+  .qty-control button{
+    width:28px;height:28px;
+    border:none;
+    background:transparent;
+    color:var(--cocoa-900);
+    border-radius:50%;
+    font-size:16px;
+    cursor:pointer;
+    line-height:1;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .15s ease, color .15s ease;
+  }
+  .qty-control button:hover{background:var(--cocoa-900);color:var(--cream-050);}
+  .qty-control .qty-num{
+    min-width:16px;
+    text-align:center;
+    font-variant-numeric:tabular-nums;
+    font-size:15px;
+    font-weight:500;
+  }
+
+  /* ---------- Order panel ---------- */
+  .order-panel{
+    position:sticky;
+    top:20px;
+    background:linear-gradient(165deg, var(--cocoa-800), var(--cocoa-900));
+    color:var(--cream-100);
+    border-radius:14px;
+    padding:34px 30px;
+    box-shadow:0 18px 40px -18px rgba(42,22,16,0.55);
+  }
+  .order-panel h2{
+    color:var(--cream-050);
+    font-size:21px;
+    font-weight:600;
+    margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .order-panel h2 svg{width:20px;height:20px;color:var(--caramel-300);}
+
+  .cart-empty{
+    font-size:14px;
+    color:var(--caramel-300);
+    padding:8px 0 22px;
+  }
+
+  .cart-line{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    font-size:14.5px;
+    padding:9px 0;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .cart-line .cl-name{flex:1;}
+
+  .cart-total{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-size:19px;
+    padding-top:16px;
+    margin-top:4px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+  }
+  .cart-total span:last-child{color:var(--caramel-300);}
+
+  .divider{height:1px;background:rgba(255,255,255,0.12);margin:24px 0;}
+
+  .field{margin-bottom:15px;}
+  .field label{
+    display:block;
+    font-size:12.5px;
+    color:var(--caramel-300);
+    margin-bottom:6px;
+    font-weight:500;
+  }
+  .field input, .field textarea{
+    width:100%;
+    padding:12px 13px;
+    background:rgba(255,255,255,0.055);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:8px;
+    color:var(--cream-050);
+    font-family:'Work Sans', sans-serif;
+    font-size:14.5px;
+  }
+  .field textarea{resize:vertical;min-height:64px;}
+  .field input::placeholder, .field textarea::placeholder{color:rgba(247,239,227,0.38);}
+  .field input:focus, .field textarea:focus{
+    outline:2px solid var(--caramel-500);
+    outline-offset:1px;
+  }
+
+  .send-btn{
+    width:100%;
+    margin-top:10px;
+    padding:16px 18px;
+    background:var(--caramel-500);
+    color:var(--cocoa-900);
+    border:none;
+    border-radius:8px;
+    font-size:15.5px;
+    font-weight:600;
+    font-family:'Work Sans', sans-serif;
+    cursor:pointer;
+    transition:background .15s ease, transform .1s ease;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+  }
+  .send-btn svg{width:18px;height:18px;}
+  .send-btn:hover{background:var(--caramel-300);}
+  .send-btn:active{transform:scale(0.98);}
+
+  .form-note{
+    font-size:12.5px;
+    color:rgba(247,239,227,0.5);
+    margin-top:12px;
+    text-align:center;
+  }
+
+  .error-msg{
+    font-size:13px;
+    color:#EBA5A7;
+    margin-top:10px;
+    display:none;
+  }
+
+  .confirm-msg{
+    font-size:13.5px;
+    color:var(--caramel-300);
+    margin-top:12px;
+    display:none;
+    text-align:center;
+  }
+
+  footer.site{
+    padding:30px 6vw 52px;
+    font-size:13px;
+    color:var(--cocoa-500);
+    border-top:1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="brand">
+    <svg class="brand-mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 4C12 4 6 10 6 18c0 9 6 14 14 18 8-4 14-9 14-18 0-8-6-14-14-14Z" fill="#4A2A1E"/>
+      <path d="M20 10c-5 0-9 4-9 9 0 6 4 9 9 12 5-3 9-6 9-12 0-5-4-9-9-9Z" fill="#C48A4A"/>
+    </svg>
+    <div class="mark">Cacao <em>&amp;</em> Co.</div>
+  </div>
+  <div class="tag">Chocolats artisanaux, faits à la commande</div>
+</header>
+
+<section class="hero">
+  <h1>Composez votre commande de chocolats.</h1>
+  <svg class="drip" viewBox="0 0 150 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2 6C20 -2 30 14 48 6C66 -2 76 14 94 6C112 -2 122 14 140 6" stroke="#C48A4A" stroke-width="3" stroke-linecap="round"/>
+  </svg>
+  <p>Choisissez vos chocolats ci-dessous, ajoutez votre nom et votre numéro de téléphone, puis envoyez votre commande directement à l'atelier sur WhatsApp. Nous confirmons le retrait ou la livraison par message.</p>
+</section>
+
+<div class="layout">
+  <div class="menu" id="menu"></div>
+
+  <aside class="order-panel">
+    <h2>
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16l-1.5 10.5a2 2 0 0 1-2 1.5H7.5a2 2 0 0 1-2-1.5L4 6Z"/><path d="M8 6V5a4 4 0 0 1 8 0v1"/></svg>
+      Votre commande
+    </h2>
+    <div id="cartLines"></div>
+    <div class="cart-total" id="cartTotal" style="display:none;">
+      <span>Total</span><span id="cartTotalValue">0 DZD</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="field">
+      <label for="custName">Votre nom</label>
+      <input type="text" id="custName" placeholder="Nom complet">
+    </div>
+    <div class="field">
+      <label for="custPhone">Votre numéro de téléphone</label>
+      <input type="tel" id="custPhone" placeholder="ex. 0555 12 34 56">
+    </div>
+    <div class="field">
+      <label for="custNote">Note pour le pâtissier (facultatif)</label>
+      <textarea id="custNote" placeholder="Heure de retrait, allergies, message cadeau..."></textarea>
+    </div>
+
+    <button class="send-btn" id="sendBtn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.3c1.5.8 3.1 1.3 4.8 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.7-1.2-4.5-3.9-4.6-4.1-.1-.2-1.1-1.4-1.1-2.7s.7-1.9 1-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.5 1.5.3.1.5.1.6-.1.2-.2.7-.8.9-1.1.2-.3.4-.2.6-.1.2.1 1.5.7 1.8.8.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+      Envoyer la commande sur WhatsApp
+    </button>
+    <div class="error-msg" id="errorMsg"></div>
+    <div class="confirm-msg" id="confirmMsg">Commande prête — terminez l'envoi dans WhatsApp.</div>
+    <div class="form-note">WhatsApp s'ouvre avec votre commande déjà rédigée.</div>
+  </aside>
+</div>
+
+<footer class="site">Cacao &amp; Co. — les commandes sont confirmées par le pâtissier avant paiement.</footer>
+
+<script>
+  // ====== À CONFIGURER ======
+  // Remplacez par le numéro WhatsApp du pâtissier, chiffres uniquement, avec l'indicatif pays
+  // ex. numéro algérien 0555 12 34 56 -> "213555123456"
+  const BAKER_WHATSAPP_NUMBER = "213797520298";
+  // ===========================
+
+  const ICONS = {
+    bar: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M9 6v12M15 6v12M3 12h18"/></svg>`,
+    truffle: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="14" r="3.2"/><circle cx="15" cy="9" r="3.2"/><circle cx="17" cy="16" r="2.2"/></svg>`,
+    drop: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11Z"/></svg>`
+  };
+
+  const MENU = [
+    {
+      section: "Tablettes de chocolat",
+      icon: ICONS.bar,
+      items: [
+        { id: "bar-milk", name: "Tablette Chocolat au Lait", desc: "Chocolat au lait onctueux, 100g", price: 800 },
+        { id: "bar-dark", name: "Tablette Chocolat Noir 70%", desc: "Chocolat noir intense, origine unique, 100g", price: 900 },
+        { id: "bar-caramel", name: "Tablette Caramel & Fleur de Sel", desc: "Chocolat au lait, cœur caramel salé", price: 1000 },
+        { id: "bar-custom", name: "Tablette Sur Mesure", desc: "Choisissez une base et des garnitures — décrivez-la dans la note", price: 1200 },
+      ]
+    },
+    {
+      section: "Truffes & Coffrets",
+      icon: ICONS.truffle,
+      items: [
+        { id: "truffle-9", name: "Coffret de Truffes, 9 pièces", desc: "Assortiment de saveurs", price: 2200 },
+        { id: "truffle-16", name: "Coffret de Truffes, 16 pièces", desc: "Assortiment de saveurs", price: 3600 },
+        { id: "bombs", name: "Bombes de Chocolat Chaud, lot de 3", desc: "Fond dans une tasse de lait chaud", price: 1400 },
+      ]
+    },
+    {
+      section: "Trempés & Frais",
+      icon: ICONS.drop,
+      items: [
+        { id: "strawberries", name: "Fraises Enrobées de Chocolat", desc: "Boîte de 6, chocolat noir ou au lait", price: 1800 },
+        { id: "pretzels", name: "Bretzels Enrobés de Chocolat", desc: "Boîte de 10", price: 1300 },
+      ]
+    }
+  ];
+
+  const CURRENCY = "DZD";
+
+  const cart = {}; // id -> quantité
+
+  function formatPrice(v){
+    return v.toLocaleString("fr-FR") + " " + CURRENCY;
+  }
+
+  function renderMenu(){
+    const menuEl = document.getElementById("menu");
+    menuEl.innerHTML = "";
+    MENU.forEach(section => {
+      const sectionEl = document.createElement("div");
+      sectionEl.className = "menu-section";
+
+      const headEl = document.createElement("div");
+      headEl.className = "menu-section-head";
+      headEl.innerHTML = `<span class="icon">${section.icon}</span><h2>${section.section}</h2>`;
+      sectionEl.appendChild(headEl);
+
+      section.items.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "item";
+        row.innerHTML = `
+          <div class="item-info">
+            <div class="item-name">${item.name}</div>
+            <div class="item-desc">${item.desc}</div>
+            <div class="item-price">${formatPrice(item.price)}</div>
+          </div>
+          <div class="qty-control">
+            <button type="button" aria-label="Diminuer la quantité" data-action="dec" data-id="${item.id}">−</button>
+            <span class="qty-num" id="qty-${item.id}">0</span>
+            <button type="button" aria-label="Augmenter la quantité" data-action="inc" data-id="${item.id}">+</button>
+          </div>
+        `;
+        sectionEl.appendChild(row);
+      });
+
+      menuEl.appendChild(sectionEl);
+    });
+
+    menuEl.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-action]");
+      if(!btn) return;
+      const id = btn.dataset.id;
+      const action = btn.dataset.action;
+      const current = cart[id] || 0;
+      if(action === "inc"){
+        cart[id] = current + 1;
+      } else {
+        cart[id] = Math.max(0, current - 1);
+        if(cart[id] === 0) delete cart[id];
+      }
+      document.getElementById(`qty-${id}`).textContent = cart[id] || 0;
+      renderCart();
+      hideConfirm();
+    });
+  }
+
+  function findItem(id){
+    for(const section of MENU){
+      const found = section.items.find(i => i.id === id);
+      if(found) return found;
+    }
+    return null;
+  }
+
+  function renderCart(){
+    const linesEl = document.getElementById("cartLines");
+    const totalWrap = document.getElementById("cartTotal");
+    const totalVal = document.getElementById("cartTotalValue");
+    const ids = Object.keys(cart);
+
+    if(ids.length === 0){
+      linesEl.innerHTML = `<div class="cart-empty">Aucun chocolat ajouté pour l'instant — choisissez un article dans le menu.</div>`;
+      totalWrap.style.display = "none";
+      return;
+    }
+
+    let total = 0;
+    linesEl.innerHTML = "";
+    ids.forEach(id => {
+      const item = findItem(id);
+      const qty = cart[id];
+      const lineTotal = item.price * qty;
+      total += lineTotal;
+      const lineEl = document.createElement("div");
+      lineEl.className = "cart-line";
+      lineEl.innerHTML = `
+        <span class="cl-name">${qty} × ${item.name}</span>
+        <span>${formatPrice(lineTotal)}</span>
+      `;
+      linesEl.appendChild(lineEl);
+    });
+
+    totalWrap.style.display = "flex";
+    totalVal.textContent = formatPrice(total);
+    return total;
+  }
+
+  function buildOrderMessage(){
+    const ids = Object.keys(cart);
+    const name = document.getElementById("custName").value.trim();
+    const phone = document.getElementById("custPhone").value.trim();
+    const note = document.getElementById("custNote").value.trim();
+
+    let total = 0;
+    let lines = "";
+    ids.forEach(id => {
+      const item = findItem(id);
+      const qty = cart[id];
+      const lineTotal = item.price * qty;
+      total += lineTotal;
+      lines += `- ${qty} x ${item.name} — ${formatPrice(lineTotal)}\n`;
+    });
+
+    let msg = `Nouvelle commande de chocolats\n\n${lines}\nTotal : ${formatPrice(total)}\n\nNom : ${name}\nTéléphone : ${phone}`;
+    if(note) msg += `\nNote : ${note}`;
+    return msg;
+  }
+
+  function showError(msg){
+    hideConfirm();
+    const el = document.getElementById("errorMsg");
+    el.textContent = msg;
+    el.style.display = "block";
+  }
+  function hideError(){
+    document.getElementById("errorMsg").style.display = "none";
+  }
+  function showConfirm(){
+    document.getElementById("confirmMsg").style.display = "block";
+  }
+  function hideConfirm(){
+    document.getElementById("confirmMsg").style.display = "none";
+  }
+
+  document.getElementById("sendBtn").addEventListener("click", () => {
+    hideError();
+    const ids = Object.keys(cart);
+    const name = document.getElementById("custName").value.trim();
+    const phone = document.getElementById("custPhone").value.trim();
+
+    if(ids.length === 0){
+      showError("Ajoutez au moins un article avant d'envoyer votre commande.");
+      return;
+    }
+    if(!name){
+      showError("Veuillez indiquer votre nom.");
+      return;
+    }
+    if(!phone){
+      showError("Veuillez indiquer votre numéro de téléphone.");
+      return;
+    }
+
+    const message = buildOrderMessage();
+    const url = `https://wa.me/${BAKER_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+    showConfirm();
+  });
+
+  renderMenu();
+  renderCart();
+</script>
+
+</body>
+</html>
